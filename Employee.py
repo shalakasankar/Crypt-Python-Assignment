@@ -1,6 +1,7 @@
 
 from Account import Account
-
+import os
+clear = lambda: os.system('cls')
 
 class Employee():
     empid_count=1010 
@@ -13,7 +14,7 @@ class Employee():
         for i in range(len(account_array)):
             if type(account_array[i])==Account:
                 if str(account_array[i].accountno)==acc:
-                    del account_array[i]
+                    account_array.pop(i)
                     print("Account successfully closed")  
                 
     def displayDetails(self,acc,account_array):
@@ -29,11 +30,13 @@ class Employee():
     def employeeHomePage(self,account_array):
         ch=1
         while(ch!=4):
+            
             print("\n")
             print(self.name)
             print(self.position)
             print("\nView customer details-1")
-            print("Close account-2")
+            if self.id <=1003:
+                print("Close account-2")
             if self.id==1000:
                 print("Add an employee-3")
             print("Quit-4")
@@ -58,3 +61,5 @@ class Employee():
                 new_employee=Employee(empname,emppost,self.empid_count)
                 account_array.append(new_employee)
                 self.empid_count+=1
+        if ch==4:
+            return

@@ -1,3 +1,7 @@
+import os
+clear = lambda: os.system('cls')
+
+
 class Account():
     def __init__(self,name,balance,accountno,id,password,age,dob):
         self.name=name 
@@ -30,19 +34,23 @@ class Account():
         print("\n\n")
         ch=0
         while(ch!=4):
+            
             print("1=WITHDRAW \n 2=DEPOSIT \n 3=CHECK BALANCE \n4=QUIT")
             ch=int(input())
             if ch==1:
+                clear()
                 print("Enter Amount: ")
                 amt=int(input())
                 self.withdraw(amt)
 
             if ch==2:
+                clear()
                 print("Enter Amount: ")
                 amt=int(input())
                 self.deposit(amt)
             
             if ch==3:
+                clear()
                 print("Current Balance:" + str(self.checkBalance()))
         
        
